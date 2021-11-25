@@ -1,0 +1,159 @@
+{
+    "lenguajes":[
+      {
+        "id": 1,
+        "name": "JavaScript",
+        "image": "https://www.cloudstudio.mx/blog/wp-content/uploads/2019/01/js.png",
+        "description": "Es un lenguaje de programación ligero, interpretado, o compilado justo-a-tiempo (just-in-time) con funciones de primera clase",
+        "categoryId": 1
+      },
+      {
+        "id": 2,
+        "name": "Solidity",
+        "image": "https://solidity-es.readthedocs.io/es/latest/_images/logo.svg",
+        "categoryId": 2,
+        "description": "Solidity es un lenguaje de alto nivel orientado a contratos. Su sintaxis es similar a la de JavaScript y está enfocado específicamente a la Máquina Virtual de Etehreum (EVM)."
+      },
+      {
+        "id": 3,
+        "name": "C#",
+        "image": "http://static.gunnarpeipman.com/wp-content/uploads/2009/10/csharp-featured.png",
+        "categoryId": 3,
+        "description": "Es un lenguaje de programación multiparadigma desarrollado y estandarizado por la empresa Microsoft"
+      }, 
+      {
+        "id": 4,
+        "name": "Python",
+        "image": "https://cosasdedevs.com/media/sections/images/python.png",
+        "categoryId": 4,
+        "description": "Es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código."
+      },
+      {
+        "id": 5,
+        "name": "PHP",
+        "image": "https://nestrategia.com/wp-content/uploads/2019/04/php-desarrollo-web.png",
+        "categoryId": 1,
+        "description": "Es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML."
+      },
+      {
+        "id": 6,
+        "name": "Rust",
+        "image": "https://blog.eonidi.com/wp-content/uploads/2019/04/rust.jpeg",
+        "categoryId": 2,
+        "description": "​​Es un lenguaje de programación multiparadigma que soporta programación funcional pura, por procedimientos, imperativa y orientada a objetos."
+      },
+      {
+        "id": 7,
+        "name": "C++",
+        "image": "https://i.ytimg.com/vi/dJzLmjSJc2c/maxresdefault.jpg",
+        "categoryId": 3,
+        "description": "C++ es un lenguaje de programación diseñado en 1979 por Bjarne Stroustrup. La intención de su creación fue extender al lenguaje de programación C"
+      }, {
+        "id": 8,
+        "name": "JAVA",
+        "image": "https://www.oracle.com/oce/press/assets/CONT6C95347B9ECC40CF8E7272A74FD80BDE/native/rc24-java-logo.gif",
+        "categoryId": 4,
+        "description": "Java es un lenguaje de programación y una plataforma informática comercializada por primera vez en 1995 por Sun Microsystems."
+      },
+      {
+        "id": 9,
+        "name": "TypeScript",
+        "image": "https://cdn.worldvectorlogo.com/logos/typescript-2.svg",
+        "categoryId": 1,
+        "description": "Es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipos estáticos y objetos basados en clases"
+      },
+      {
+        "id": 10,
+        "name": "Simplicity",
+        "image": "https://blockstream.com/img/blog/2018-11-28/simplicity_v2_1920x1080.jpg",
+        "categoryId": 2,
+        "description": "Simplicity fue originalmente diseñado como un lenguaje de bajo nivel para ejecutar contratos inteligentes. Ahora es muy probable que se convierta en la mejor aplicación para aplicaciones de criptomonedas y blockchain."
+      },
+      {
+        "id": 11,
+        "name": "Objective-C",
+        "image": "https://www.tpptechnology.com/media/wh5nrf30/logo-objc.png",
+        "categoryId": 3,
+        "description": "Objective-C es un lenguaje de programación orientado a objetos creado como un superconjunto de C para que implementase un modelo de objetos parecido al de Smalltalk. Originalmente fue creado por Brad Cox y la corporación StepStone en 1980"
+      }, {
+        "id": 12,
+        "name": "GO",
+        "image": "https://dc722jrlp2zu8.cloudfront.net/media/cache/55/e2/55e278f50beb855249ddc459d137b626.webp",
+        "categoryId": 4,
+        "description": "Es un lenguaje de programación compilado que toma ideas de los lenguajes interpretados para tener una compilación más rápida"
+      },
+      {
+        "id": 13,
+        "name": "Ruby",
+        "image": "https://res.cloudinary.com/practicaldev/image/fetch/s--UxXOS7HI--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/5fjuuslt2yddw4f2811k.png",
+        "categoryId": 1,
+        "description": "Ruby es un lenguaje de programación interpretado, reflexivo y orientado a objetos, creado por el programador japonés Yukihiro 'Matz' Matsumoto, quien comenzó a trabajar en Ruby en 1993, y lo presentó públicamente en 1995"
+      },
+      {
+        "id": 14,
+        "name": "Rholang",
+        "image": "https://neironix.io/images/uploads/3dba7453fd4de3d992b5fe18de04cc4f.png",
+        "categoryId": 2,
+        "description": "Uno de los mejores lenguajes de programación de cadenas de bloques para desarrollar contratos inteligentes, Rholang es un nuevo hito en el desarrollo de cadenas de bloques"
+      },
+      {
+        "id": 15,
+        "name": "LUA",
+        "image": "https://live.mrf.io/statics/i/ps/www.muylinux.com/wp-content/uploads/2016/05/Lua.jpg?width=1200&enable=upscale",
+        "categoryId": 3,
+        "description": "Lua es un lenguaje de programación multiparadigma, imperativo, estructurado y bastante ligero, que fue diseñado como un lenguaje interpretado con una semántica extendible"
+      }, {
+        "id": 16,
+        "name": "R",
+        "image": "https://www.unir.net/wp-content/uploads/2019/11/lenguaje-r-unir-1.jpg",
+        "categoryId": 4,
+        "description": "R es un entorno de software libre (licencia GNU GLP) y lenguaje de programación interpretado, es decir, ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina"
+      },
+      {
+        "id": 17,
+        "name": "Perl",
+        "image": "https://lenguajesdeprogramacion.net/wp-content/uploads/2018/01/Lenguaje-Perl-camello.png",
+        "categoryId": 1,
+        "description": "Perl es un lenguaje de programación diseñado por Larry Wall en 1987. Perl toma características del lenguaje C, del lenguaje interpretado bourne shell (sh), AWK, sed, Lisp y, en un grado inferior, de muchos otros lenguajes de programación."
+      },
+      {
+        "id": 18,
+        "name": "Vyper",
+        "image": "https://www.criptotendencias.com/wp-content/uploads/2019/02/vyper-ethererum-smart-contracts.png",
+        "categoryId": 2,
+        "description": "Un lenguaje de programación de cadenas de bloques significativamente nuevo, Vyper tiene como objetivo hacer que la escritura de contratos inteligentes sea un juego de niños. Normalmente se utiliza para la EVM, al igual que la Solidez. Sin embargo, difiere considerablemente de Solidez en lo que respecta a las estructuras de control y a la gestión de las cuestiones de seguridad."
+      },
+      {
+        "id": 19,
+        "name": "Swift",
+        "image": "https://www.softzone.es/app/uploads-softzone.es/2021/07/Mejores-IDE-de-programacion-para-Swift.jpg",
+        "categoryId": 3,
+        "description": "Swift es un lenguaje de programación multiparadigma creado por Apple enfocado en el desarrollo de aplicaciones para iOS y macOS"
+      }, 
+      {
+        "id": 20,
+        "name": "C",
+        "image": "https://i.blogs.es/21f7ba/c-lenguaje/1366_2000.jpg",
+        "categoryId": 4,
+        "description": "Se trata de un lenguaje de tipos de datos estáticos, débilmente tipado, de medio nivel, que dispone de las estructuras típicas de los lenguajes de alto nivel pero, a su vez, dispone de construcciones del lenguaje que permiten un control a bajo nivel"
+      }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Desarrollo WEB"
+        },
+        {
+            "id": 2,
+            "name": "Desarrollo Blockchain"
+        },
+        {
+            "id": 3,
+            "name": "Desarrollo de Videojuegos"
+        },
+        {
+            "id": 4,
+            "name": "Multipropisito"
+        }
+    ]
+}

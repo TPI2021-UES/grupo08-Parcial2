@@ -6,9 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias de Lenguajes de Programación</title>
     <link rel="stylesheet" href="./indexStyles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;500&display=swap" rel="stylesheet">
 </head>
 <body>
     
+    <header class = "header">
+        <h1 class = "header__title">
+            Lenguajes de Programacion
+        </h1>
+    </header>
+    <main class = "main">
+        <div class = "main__options">
+            <div class = "main__options--search">
+                <input 
+                    type = "text" 
+                    placeholder = "Busqueda"
+                    class = "main__input"
+                    id = "idSearch"
+                >
+                <img 
+                    class = "main__icon"
+                    src = "./img/search.svg" 
+                    alt = "icon for search"
+                >
+            </div>
+            <input 
+                class = "main__button main__button--center" 
+                type = "submit" 
+                id = "idButtonRegistrar"
+                value = "Registrar"
+            >
+        </div>
+        <div class = "main__list">
+            <table class = "main__table" id = "idTable">
+                <thead>
+                    <tr >
+                        <th class = "main__table--th">Numero</th>
+                        <th class = "main__table--th">Nombre</th>
+                        <th class = "main__table--th">Descripcion</th>
+                        <th class = "main__table--th">Tipo</th>
+                        <th class = "main__table--th">Logo</th>
+                        <th class = "main__table--th">Opcciones</th>
+                    </tr>
+                </thead>
+                <tbody id = "idTbody">
+                </tbody>
+            </table>
+        </div>
+
+        <!--Modal for delete -->
+        <div class = "main__modal" id = "idModalDelete">
+            <img 
+                src = "./img/close.svg" 
+                class = "modal__close"
+                id = "idCloseIconDelete"
+                alt = "icon-close"
+            >
+            <h2 class = "modal__title">Eliminar</h2>
+            <p class = "modal__text">Desea eliminar el lenguaje</p>
+            <input id = "idButtonDelete" class = "main__button modal__button" type = "submit" value = "Eliminar">
+        </div>
+
+        <!-- Modal for Register and Edit -->
+        <div 
+            class = "idModalEdit main__modal main__modal--edit" 
+            id = "idModalRE"
+        >
+            <img 
+                src = "./img/close.svg" 
+                class = "modal__close"
+                id = "idCloseIconEdit"
+                alt = "icon-close"icon-close
+    Registrar Lenguaje
+            >
+            <h2 class = "modal__title">Registrar Lenguaje</h2>
+            <div class = "modal__container">
+                <label for = "idInputName" class = "modal__label">
+                    <img 
+                       src = "./img/name.svg"
+                       alt = "icon-input"
+                       class = "icon__input"
+                    >
+                </label>
+                <input 
+                    type = "text" 
+                    id = "idInputName" 
+                    name = "nameP"
+                    class = "modal__input"
+                    placeholder="Nombre"
+                >
+                <p class = "modal__error">Esto es un error</p>
+            </div>
+            <div class = "modal__container" style="height:160px">
+                <label for = "idInputDescription" class = "modal__label">
+                    <img 
+                       src = "./img/name.svg"
+                       alt = "icon-input"
+                       class = "icon__input"
+                    >
+                </label>
+                <textarea 
+                    rows="4"
+                    cols="30"
+                    id = "idInputDescription" 
+                    name = "nameP"
+                    class = "modal__input"
+                    placeholder="Descripcion"
+                    style = "height: 150px"
+                ></textarea>
+                <p class = "modal__error">Esto es un error</p>
+            </div>
+            <div class = "modal__container">
+                <label for = "idInputImg" class = "modal__label">
+                    <img 
+                       src = "./img/name.svg"
+                       alt = "icon-input"
+                       class = "icon__input"
+                    >
+                </label>
+                <input 
+                    type = "text" 
+                    id = "idInputImg" 
+                    name = "urlImage"
+                    class = "modal__input"
+                    placeholder="Url Img"
+                >
+                <p class = "modal__error">Esto es un error</p>
+            </div>
+            <div class = "modal__container">
+                <label for = "idInputImg" class = "modal__label">
+                    <img 
+                       src = "./img/name.svg"
+                       alt = "icon-input"
+                       class = "icon__input"
+                    >
+                </label>
+                <select 
+                    type = "text" 
+                    id = "idSelectTipo" 
+                    name = "tipoP"
+                    class = "modal__input"
+                    placeholder="Url Img"
+                >
+                    <option value = "0">--Seleccione--</option>
+                </select>
+                <p class = "modal__error">Esto es un error</p>
+            </div>
+            <input 
+                type = "submit" 
+                class = "modal__button main__button" 
+                value = "Registrar"
+                style = "background-color: blue"
+                id = "idBtnRegistrar"
+            >
+        </div>
+    </main>
 </body>
 <script src="./crudIndex.js"></script>
 </html>
