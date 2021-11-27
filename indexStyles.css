@@ -24,6 +24,44 @@ body {
     font-family: "Lexend Deca", sans-serif;
     color: var(--white);
 }
+
+/*estilos de los filtros por categoria y ordenamiento ascendente y descendente*/
+.content{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.filters{
+    background-color: #333333;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+    box-shadow: #1127f0 5px 5px 6px;
+}
+
+.filters label{
+    margin: 10px 5px 10px 30px;
+}
+
+.filters #idFilter, #idOrderBy{
+    margin-right: 30px;
+    margin-left: 5px;
+}
+
+
+/*estilos pora el modal y lo demas*/
 .main {
     margin-top: 30px;
     height: 100%;

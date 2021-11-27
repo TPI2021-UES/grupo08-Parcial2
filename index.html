@@ -18,6 +18,38 @@
             Lenguajes de Programacion
         </h1>
     </header>
+
+    <!--seccion de filtrar los datos y ordenamientos-->
+    <div class="content">
+        <div class="filters">
+            <form>
+                <label for = "idfilter">Filtrar Por:</label>
+            <select 
+                type = "text"
+                id = "idFilter" 
+                name = "tipoP"
+                placeholder="filtrar por categoria">
+                <option value = "0">--Seleccione--</option>
+                <option value = "1">Desarrollo Web</option>
+                <option value = "2">Desarrollo de Videojuegos</option>
+                <option value = "3">Desarrollo Blockchain</option>
+                <option value = "4">Multiproposito</option>
+            </select>
+            
+            <label for = "idOrderBy">Ordenar de manera:</label>
+            <select 
+                type = "text" 
+                id = "idOrderBy" 
+                name = "tipoP"
+                placeholder="ordenar por">
+                <option value = "0">Normal</option>
+                <option value = "1">Ascendente</option>
+                <option value = "2">Descendente</option>
+            </select>
+            </form>
+        </div>
+    </div>
+
     <main class = "main">
         <div class = "main__options">
             <div class = "main__options--search">
@@ -41,9 +73,9 @@
             >
         </div>
         <div class = "main__list">
-            <table class = "main__table" id = "idTable">
+            <table id="table" class = "main__table" id = "idTable">
                 <thead>
-                    <tr >
+                    <tr>
                         <th class = "main__table--th">Numero</th>
                         <th class = "main__table--th">Nombre</th>
                         <th class = "main__table--th">Descripcion</th>
@@ -164,6 +196,7 @@
             >
         </div>
     </main>
+
 </body>
 <script src="./crudIndex.js"></script>
 </html>
