@@ -1,13 +1,6 @@
 {
   "lenguajes": [
     {
-      "id": 1,
-      "name": "JavaScript",
-      "image": "https://www.cloudstudio.mx/blog/wp-content/uploads/2019/01/js.png",
-      "description": "Es un lenguaje de programación ligero, interpretado, o compilado justo-a-tiempo (just-in-time) con funciones de primera clase",
-      "categoryId": 1
-    },
-    {
       "id": 2,
       "name": "Solidity",
       "image": "https://solidity-es.readthedocs.io/es/latest/_images/logo.svg",
@@ -48,6 +41,20 @@
       "image": "https://i.ytimg.com/vi/dJzLmjSJc2c/maxresdefault.jpg",
       "categoryId": 3,
       "description": "C++ es un lenguaje de programación diseñado en 1979 por Bjarne Stroustrup. La intención de su creación fue extender al lenguaje de programación C"
+    },
+    {
+      "id": 8,
+      "name": "JAVA",
+      "image": "https://www.oracle.com/oce/press/assets/CONT6C95347B9ECC40CF8E7272A74FD80BDE/native/rc24-java-logo.gif",
+      "categoryId": 4,
+      "description": "Java es un lenguaje de programación y una plataforma informática comercializada por primera vez en 1995 por Sun Microsystems."
+    },
+    {
+      "id": 9,
+      "name": "TypeScript",
+      "image": "https://cdn.worldvectorlogo.com/logos/typescript-2.svg",
+      "categoryId": 1,
+      "description": "Es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipos estáticos y objetos basados en clases"
     },
     {
       "id": 10,
@@ -106,11 +113,32 @@
       "description": "Perl es un lenguaje de programación diseñado por Larry Wall en 1987. Perl toma características del lenguaje C, del lenguaje interpretado bourne shell (sh), AWK, sed, Lisp y, en un grado inferior, de muchos otros lenguajes de programación."
     },
     {
+      "id": 18,
+      "name": "Vyper",
+      "image": "https://www.criptotendencias.com/wp-content/uploads/2019/02/vyper-ethererum-smart-contracts.png",
+      "categoryId": 2,
+      "description": "Un lenguaje de programación de cadenas de bloques significativamente nuevo, Vyper tiene como objetivo hacer que la escritura de contratos inteligentes sea un juego de niños. Normalmente se utiliza para la EVM, al igual que la Solidez. Sin embargo, difiere considerablemente de Solidez en lo que respecta a las estructuras de control y a la gestión de las cuestiones de seguridad."
+    },
+    {
+      "id": 19,
+      "name": "Swift",
+      "image": "https://www.softzone.es/app/uploads-softzone.es/2021/07/Mejores-IDE-de-programacion-para-Swift.jpg",
+      "categoryId": 3,
+      "description": "Swift es un lenguaje de programación multiparadigma creado por Apple enfocado en el desarrollo de aplicaciones para iOS y macOS"
+    },
+    {
+      "id": 20,
       "name": "C",
-      "description": "Se trata de un lenguaje de tipos de datos estáticos, débilmente tipado, de medio nivel, que dispone de las estructuras típicas de los lenguajes de alto nivel pero, a su vez, dispone de construcciones del lenguaje que permiten un control a bajo nivel",
       "image": "https://i.blogs.es/21f7ba/c-lenguaje/1366_2000.jpg",
       "categoryId": 4,
-      "id": 19
+      "description": "Se trata de un lenguaje de tipos de datos estáticos, débilmente tipado, de medio nivel, que dispone de las estructuras típicas de los lenguajes de alto nivel pero, a su vez, dispone de construcciones del lenguaje que permiten un control a bajo nivel"
+    },
+    {
+      "name": "JavaScript",
+      "description": "Es un lenguaje de programación ligero, interpretado, o compilado justo-a-tiempo (just-in-time) con funciones de primera clase",
+      "image": "https://www.cloudstudio.mx/blog/wp-content/uploads/2019/01/js.png",
+      "categoryId": 1,
+      "id": 21
     }
   ],
   "categories": [

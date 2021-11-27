@@ -1,64 +1,5 @@
-
-//funcion para filtrar los elementos
-function filterElements(catstr) {
-	var code="null";
-	switch(catstr) {
-		case "Desarrollo Web":code="1";break;
-	    case "Desarrollo de Videojuegos":code="2";break;
-		case "Desarrollo Blockchain":code="3";break;
-		case "Multiproposito":code="4";break;
-	}
-	return code;
-}
-
-//funcion para borrar las filas de la tabla
-function deleteRows(objectLenguaje){
-    for(let i = 1; i <= objectLenguaje.length; i++){
-        document.getElementById('table').deleteRow(1);
-    }
-}
-
-//funcion para  listar los objetos
-function listLenguajes(lenguajes) {
-    let orden = idOrderBy.value;
-    if(orden == 0) {
-        if(document.getElementById('table').rows.length > 1){
-            deleteRows(lenguajes);
-        }
-        lenguajes.forEach((da, index) => {
-            addRow(da, index);
-        })
-    }
-    else if(orden == 1) {
-        deleteRows(lenguajes);
-        lenguajes.sort((a, b) => {
-            if(a.name < b.name) return -1
-            else if(a.name > b.name) return 1
-            return 0;
-        }).forEach((da, index) => {
-                addRow(da, index);
-            });
-    }
-    else if(orden == 2) {
-        deleteRows(lenguajes);
-        lenguajes.sort((a, b) => {
-            if(a.name < b.name) return 1
-            else if(a.name > b.name) return -1
-            return 0;
-        }).forEach((da, index) => {
-            addRow(da, index);
-        });
-    }
-
-    idOrderBy.addEventListener('change', () => {
-        listLenguajes(lenguajes);
-    })
-}
-
-
 //Declaracion de elementos para la tabla
 const idTbody = document.getElementById('idTbody');
-const idTable = document.getElementById('idTable');
 
 //Declaracion de elementos para el modal de eliminar 
 const idModalDelete = document.getElementById('idModalDelete');
@@ -84,7 +25,52 @@ const blockError = document.getElementsByClassName('modal__error');
 const modalContainer = document.getElementsByClassName('modal__container');
 let dataObjetcs;
 let totalObjetcs;
+//funcion para filtrar los elementos
+function filterElements(catstr) {
+	var code="null";
+	switch(catstr) {
+		case "Desarrollo Web":code="1";break;
+	    case "Desarrollo de Videojuegos":code="2";break;
+		case "Desarrollo Blockchain":code="3";break;
+		case "Multiproposito":code="4";break;
+	}
+	return code;
+}
 
+
+//funcion para  listar los objetos
+function listLenguajes(lenguajes) {
+    let orden = idOrderBy.value;
+    idTbody.innerHTML = '';
+    console.log(orden)
+    if(orden == 0) {
+        lenguajes.forEach((da, index) => {
+            addRow(da, index);
+        })
+    }
+    else if(orden == 1) {
+        lenguajes.sort((a, b) => {
+            if(a.name < b.name) return -1
+            else if(a.name > b.name) return 1
+            return 0;
+        }).forEach((da, index) => {
+                addRow(da, index);
+            });
+    }
+    else if(orden == 2) {
+        lenguajes.sort((a, b) => {
+            if(a.name < b.name) return 1
+            else if(a.name > b.name) return -1
+            return 0;
+        }).forEach((da, index) => {
+            addRow(da, index);
+        });
+    }
+
+    idOrderBy.addEventListener('change', () => {
+        listLenguajes(lenguajes);
+    })
+}
 
 
 const cleanInputs = () => {
@@ -113,17 +99,17 @@ idCloseIconDelete.addEventListener('click', () => {
 });
 
 const openDeleteRow = () => {
-    idTable.addEventListener('click', (e) => {
+    table.addEventListener('click', (e) => {
         if(e.target.getAttribute('option') === 'delete') {
             const nameP = e.target.parentNode.parentNode.parentNode.children[1].innerText;
             const idP = e.target.parentNode.parentNode.parentNode.children[0].getAttribute('id-value');
             const numero = Number(e.target.parentNode.parentNode.parentNode.children[0].innerText);
-            const height = idTable.offsetHeight/totalObjetcs;
+            const height = table.offsetHeight/totalObjetcs;
             idModalDelete.classList.add('open-modal-delete');
             idModalDelete.classList.remove('close-modal-delete');
             idModalDelete.children[2].innerText = `Desea eliminar el lenguaje de programacion ${nameP}`;
             idModalDelete.children[3].setAttribute('id-value', idP);
-            console.log(idTable.offsetHeight);
+            console.log(table.offsetHeight);
             idModalDelete.style.top =  `${height * numero}px`;
         }
     });
@@ -206,9 +192,7 @@ idBtnRegistrar.addEventListener('click', () => {
 const getAllCategories = () => {
     fetch(`${urlTypes}`, {
         method: "GET"
-    })
-        .then(response => response.json())
-        .then(data => {
+    }) .then(response => response.json()) .then(data => {
             data.forEach(da => {
                 idSelectTipo.innerHTML += `
                     <option value = "${da.id}">${da.name}</option>
