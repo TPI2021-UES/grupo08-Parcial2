@@ -1,3 +1,61 @@
+
+//funcion para filtrar los elementos
+function filterElements(catstr) {
+	var code="null";
+	switch(catstr) {
+		case "Desarrollo Web":code="1";break;
+	    case "Desarrollo de Videojuegos":code="2";break;
+		case "Desarrollo Blockchain":code="3";break;
+		case "Multiproposito":code="4";break;
+	}
+	return code;
+}
+
+//funcion para borrar las filas de la tabla
+function deleteRows(objectLenguaje){
+    for(let i = 1; i <= objectLenguaje.length; i++){
+        document.getElementById('table').deleteRow(1);
+    }
+}
+
+//funcion para  listar los objetos
+function listLenguajes(lenguajes) {
+    let orden = idOrderBy.value;
+    if(orden == 0) {
+        if(document.getElementById('table').rows.length > 1){
+            deleteRows(lenguajes);
+        }
+        lenguajes.forEach((da, index) => {
+            addRow(da, index);
+        })
+    }
+    else if(orden == 1) {
+        deleteRows(lenguajes);
+        lenguajes.sort((a, b) => {
+            if(a.name < b.name) return -1
+            else if(a.name > b.name) return 1
+            return 0;
+        }).forEach((da, index) => {
+                addRow(da, index);
+            });
+    }
+    else if(orden == 2) {
+        deleteRows(lenguajes);
+        lenguajes.sort((a, b) => {
+            if(a.name < b.name) return 1
+            else if(a.name > b.name) return -1
+            return 0;
+        }).forEach((da, index) => {
+            addRow(da, index);
+        });
+    }
+
+    idOrderBy.addEventListener('change', () => {
+        listLenguajes(lenguajes);
+    })
+}
+
+
 //Declaracion de elementos para la tabla
 const idTbody = document.getElementById('idTbody');
 const idTable = document.getElementById('idTable');
@@ -6,6 +64,7 @@ const idTable = document.getElementById('idTable');
 const idModalDelete = document.getElementById('idModalDelete');
 const idCloseIconDelete = document.getElementById('idCloseIconDelete');
 const idButtonDelete = document.getElementById('idButtonDelete');
+const idOrderBy = document.getElementById('idOrderBy');
 
 //Url api
 const url = "http://localhost:3000/lenguajes";
@@ -170,9 +229,7 @@ const getAllObjetcs = () => {
         idTbody.innerHTML = "";
         dataObjetcs = data;
         totalObjetcs = data.length;
-        data.forEach((da, index) => {
-            addRow(da, index);
-        })
+        listLenguajes(data);
     })
     .catch(error => console.log(error));
 }
@@ -227,5 +284,4 @@ const deleteRow = () => {
     });
 }
 deleteRow();
-
 openDeleteRow();
