@@ -1,11 +1,12 @@
-//Declaracion de elementos para la tabla
+//Declaracion de elementos para la lista de ordenamiento y filtrar por categorias
 const idTbody = document.getElementById('idTbody');
+const idOrderBy = document.getElementById('idOrderBy');
+const idFilter = document.getElementById('idFilter');
 
 //Declaracion de elementos para el modal de eliminar 
 const idModalDelete = document.getElementById('idModalDelete');
 const idCloseIconDelete = document.getElementById('idCloseIconDelete');
 const idButtonDelete = document.getElementById('idButtonDelete');
-const idOrderBy = document.getElementById('idOrderBy');
 
 //Url api
 const url = "http://localhost:3000/lenguajes";
@@ -25,28 +26,14 @@ const blockError = document.getElementsByClassName('modal__error');
 const modalContainer = document.getElementsByClassName('modal__container');
 let dataObjetcs;
 let totalObjetcs;
-//funcion para filtrar los elementos
-function filterElements(catstr) {
-	var code="null";
-	switch(catstr) {
-		case "Desarrollo Web":code="1";break;
-	    case "Desarrollo de Videojuegos":code="2";break;
-		case "Desarrollo Blockchain":code="3";break;
-		case "Multiproposito":code="4";break;
-	}
-	return code;
-}
 
-
-//funcion para  listar los objetos
-function listLenguajes(lenguajes) {
+//funcion para ordenar los elementos
+function orderElements(lenguajes){
     let orden = idOrderBy.value;
-    idTbody.innerHTML = '';
-    console.log(orden)
     if(orden == 0) {
-        lenguajes.forEach((da, index) => {
-            addRow(da, index);
-        })
+        lenguajes.forEach((da, index) =>{
+            filterElements(da, index);
+        });
     }
     else if(orden == 1) {
         lenguajes.sort((a, b) => {
@@ -54,8 +41,8 @@ function listLenguajes(lenguajes) {
             else if(a.name > b.name) return 1
             return 0;
         }).forEach((da, index) => {
-                addRow(da, index);
-            });
+            filterElements(da, index);
+        });
     }
     else if(orden == 2) {
         lenguajes.sort((a, b) => {
@@ -63,13 +50,52 @@ function listLenguajes(lenguajes) {
             else if(a.name > b.name) return -1
             return 0;
         }).forEach((da, index) => {
-            addRow(da, index);
+            filterElements(da, index);
         });
     }
 
+    idFilter.addEventListener('change', () => {
+        idTbody.innerHTML = "";
+        orderElements(lenguajes);
+    });
+    
     idOrderBy.addEventListener('change', () => {
+        idTbody.innerHTML = "";
         listLenguajes(lenguajes);
-    })
+    });
+}
+
+
+//funcion para filtrar los elemens
+function filterElements(lenguajes, index) {
+    switch(idFilter.value){
+        case '1': {
+            if(lenguajes.categoryId == 1){
+                addRow(lenguajes, index);
+            }
+        }; break;
+        case '2': {
+            if(lenguajes.categoryId == 2){
+                addRow(lenguajes, index);
+            }
+        }; break;
+        case '3': {
+            if(lenguajes.categoryId == 3){
+                addRow(lenguajes, index);
+            }
+        }; break;
+        case '4': {
+            if(lenguajes.categoryId == 4){
+                addRow(lenguajes, index);
+            }
+        }; break;
+        default:  addRow(lenguajes, index); break;
+    }
+}
+
+//funcion para  listar los objetos
+function listLenguajes(lenguajes) {
+    orderElements(lenguajes);
 }
 
 
