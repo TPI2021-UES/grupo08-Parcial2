@@ -20,6 +20,7 @@ const idCloseIconEdit = document.getElementById('idCloseIconEdit');
 const nameP = document.getElementById('idInputName');
 const idInputDescription = document.getElementById('idInputDescription');
 const urlImage = document.getElementById('idInputImg');
+const urlVideo = document.getElementById('idInputVideo');
 const tipoP = document.getElementById('idSelectTipo');
 const idBtnRegistrar = document.getElementById('idBtnRegistrar');
 const blockError = document.getElementsByClassName('modal__error');
@@ -103,6 +104,7 @@ const cleanInputs = () => {
     nameP.value = "";
     idInputDescription.value = "";
     urlImage.value = "";
+    urlVideo.value = "";
     idSelectTipo.value = '0';
 }
 
@@ -110,6 +112,9 @@ const cleanInputs = () => {
 idButtonRegistrar.addEventListener('click', () => {
     idModalRE.classList.add('open-modal-delete');
     idModalRE.classList.remove('close-modal-delete');
+    idModalRE.style.top = "0px";
+    idBtnRegistrar.setAttribute("method", "registrar");
+    idBtnRegistrar.value = "Registrar";
     
 });
 idCloseIconEdit.addEventListener('click', () => {
@@ -124,19 +129,57 @@ idCloseIconDelete.addEventListener('click', () => {
 
 });
 
+const  actualizar = (data,id) => {
+    console.log(data)
+    fetch(`${url}/${id}`, {
+        method: 'PUT', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+        .then(data => {
+            if(data !== null) {
+                getAllObjetcs()
+                idModalRE.classList.remove('open-modal-delete')
+                idModalRE.classList.add('close-modal-delete')
+                cleanInputs();
+            }
+        })
+    .catch(error => console.log(error));
+}
+
 const openDeleteRow = () => {
     table.addEventListener('click', (e) => {
+        const numero = Number(e.target.parentNode.parentNode.parentNode.children[0].innerText);
+        const height = table.offsetHeight/totalObjetcs;
         if(e.target.getAttribute('option') === 'delete') {
             const nameP = e.target.parentNode.parentNode.parentNode.children[1].innerText;
             const idP = e.target.parentNode.parentNode.parentNode.children[0].getAttribute('id-value');
-            const numero = Number(e.target.parentNode.parentNode.parentNode.children[0].innerText);
-            const height = table.offsetHeight/totalObjetcs;
             idModalDelete.classList.add('open-modal-delete');
             idModalDelete.classList.remove('close-modal-delete');
             idModalDelete.children[2].innerText = `Desea eliminar el lenguaje de programacion ${nameP}`;
             idModalDelete.children[3].setAttribute('id-value', idP);
             console.log(table.offsetHeight);
             idModalDelete.style.top =  `${height * numero}px`;
+        }
+
+        if(e.target.getAttribute('option') === 'edit') {
+            idModalRE.classList.add('open-modal-delete');
+            idModalRE.classList.remove('close-modal-delete');
+            idModalRE.style.top = `${height * numero}px`;
+            idBtnRegistrar.setAttribute("method", "editar");
+            idBtnRegistrar.value = "Actualizar";
+            idSelectTipo.value = e.target.parentNode.parentNode.parentNode.children[4].children[0].value;
+            const idP = e.target.parentNode.parentNode.parentNode.children[0].getAttribute('id-value');
+            let dataO = dataObjetcs.filter( data => data.id === Number(idP));
+            nameP.value = dataO[0].name;
+            idInputDescription.value = dataO[0].description;
+            urlImage.value = dataO[0].image;
+            urlVideo.value = dataO[0].video;
+            idSelectTipo.value = dataO[0].categoryId;
+            idBtnRegistrar.setAttribute("id-value", dataO[0].id);
         }
     });
 }
@@ -175,9 +218,9 @@ idBtnRegistrar.addEventListener('click', () => {
         modalContainer[2].style.height = '60px';
         boolRegister = true;
     }
-    if(idSelectTipo.value === '0') {
-        blockError[3].innerText = 'Seleccione una categoria';
-        blockError[3].style.display = 'block';
+    if(urlVideo.value === '') {
+        blockError[3].innerText = "Error en la url del video";
+        blockError[3].style.display = "block";
         modalContainer[3].style.height = '85px';
         boolRegister = false;
     } else {
@@ -185,31 +228,56 @@ idBtnRegistrar.addEventListener('click', () => {
         modalContainer[3].style.height = '60px';
         boolRegister = true;
     }
+    if(idSelectTipo.value === '0') {
+        blockError[4].innerText = 'Seleccione una categoria';
+        blockError[4].style.display = 'block';
+        modalContainer[4].style.height = '85px';
+        boolRegister = false;
+    } else {
+        blockError[4].style.display = 'none';
+        modalContainer[4].style.height = '60px';
+        boolRegister = true;
+    }
     if(boolRegister) {
-        const data = {
-            'name': nameP.value,
-            'description': idInputDescription.value,
-            'image': urlImage.value,
-            'categoryId': Number(idSelectTipo.value)
-        }
-        console.log(data);
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
+        if(idBtnRegistrar.getAttribute('method') === 'registrar') {
+            const data = {
+                'name': nameP.value,
+                'description': idInputDescription.value,
+                'image': urlImage.value,
+                'video': urlVideo.value,
+                'categoryId': Number(idSelectTipo.value)
             }
-        })
-        .then(response => response.json())
-            .then(data => {
-                if(data.hasOwnProperty('name')){
-                    cleanInputs;
-                    idModalRE.classList.add('close-modal-delete');
-                    idModalRE.classList.remove('open-modal-delete');
-                    getAllObjetcs();
+            console.log(data);
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
                 }
             })
-        .catch(error => console.log(error));
+            .then(response => response.json())
+                .then(data => {
+                    if(data.hasOwnProperty('name')){
+                        cleanInputs;
+                        idModalRE.classList.add('close-modal-delete');
+                        idModalRE.classList.remove('open-modal-delete');
+                        getAllObjetcs();
+                    }
+                })
+            .catch(error => console.log(error));
+            cleanInputs();
+        }
+        if(idBtnRegistrar.getAttribute('method') === 'editar') {
+            console.log("update");
+            const data = {
+                'name': nameP.value,
+                'description': idInputDescription.value,
+                'image': urlImage.value,
+                'video': urlVideo.value,
+                'categoryId': Number(idSelectTipo.value)
+            }
+            actualizar(data, Number(idBtnRegistrar.getAttribute('id-value')));
+        }
     }
     
 });
@@ -248,7 +316,7 @@ getAllObjetcs();
 getAllCategories();
 
 //Metodo para agregar una nueva fila
-const addRow = ({id, name, image, category, description}, index) => {
+const addRow = ({id, name, image, category, description, video}, index) => {
     idTbody.innerHTML = idTbody.innerHTML + `
         <tr class = "main__table--tr">
             <td class = "main__table--td" id-value = "${id}">${index+1}</td>
@@ -261,6 +329,21 @@ const addRow = ({id, name, image, category, description}, index) => {
                     alt = "icono"
                     class = "main__table--img"
                 >
+            </td>
+            <td class = "main__table--td">
+                <iframe width="300" height="315" src="${video}"
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; 
+                    autoplay; 
+                    clipboard-write; 
+                    encrypted-media; 
+                    gyroscope; 
+                    picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            
+
             </td>
             <td class = "main__table--td">
                 <span class = "main__table--span">

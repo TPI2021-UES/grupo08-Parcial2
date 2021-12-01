@@ -52,19 +52,6 @@
 
     <main class = "main">
         <div class = "main__options">
-            <div class = "main__options--search">
-                <input 
-                    type = "text" 
-                    placeholder = "Busqueda"
-                    class = "main__input"
-                    id = "idSearch"
-                >
-                <img 
-                    class = "main__icon"
-                    src = "./img/search.svg" 
-                    alt = "icon for search"
-                >
-            </div>
             <input 
                 class = "main__button main__button--center" 
                 type = "submit" 
@@ -81,6 +68,7 @@
                         <th class = "main__table--th">Descripcion</th>
                         <th class = "main__table--th">Tipo</th>
                         <th class = "main__table--th">Logo</th>
+                        <th class = "main__table--th">video</th>
                         <th class = "main__table--th">Opcciones</th>
                     </tr>
                 </thead>
@@ -165,6 +153,23 @@
                     name = "urlImage"
                     class = "modal__input"
                     placeholder="Url Img"
+                >
+                <p class = "modal__error">Esto es un error</p>
+            </div>
+            <div class = "modal__container">
+                <label for = "idInputVideo" class = "modal__label">
+                    <img 
+                       src = "./img/name.svg"
+                       alt = "icon-input"
+                       class = "icon__input"
+                    >
+                </label>
+                <input 
+                    type = "text" 
+                    id = "idInputVideo" 
+                    name = "urlVideo"
+                    class = "modal__input"
+                    placeholder="Url Video"
                 >
                 <p class = "modal__error">Esto es un error</p>
             </div>
